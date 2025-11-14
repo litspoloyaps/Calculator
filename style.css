@@ -2,10 +2,18 @@ body {
   margin: 0;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #4e54c8, #8f94fb);
   font-family: Arial, sans-serif;
+}
+
+.title {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .calculator {
@@ -74,4 +82,12 @@ button:hover {
 
 .equal:hover {
   background: #43a047;
+}
+
+/* Footer */
+footer {
+  margin-top: 25px;
+  color: white;
+  font-size: 0.9rem;
+  opacity: 0.9;
 }
