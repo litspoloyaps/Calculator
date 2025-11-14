@@ -1,28 +1,119 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #6a5af9, #7f8cff);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* page layout */
+:root{
+  --bg1:#4e54c8;
+  --bg2:#8f94fb;
+  --white:#fff;
+  --card:#ffffff;
+  --muted:#f3f3f3;
+  --accent:#ffaf40;
+  --danger:#ff5c5c;
+  --ok:#4caf50;
 }
 
-/* Centers title + calculator vertically */
-.page-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;padding:0;font-family:Inter,Arial,Helvetica,sans-serif}
+
+/* make the body a column so footer can sit at bottom */
+body{
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
 }
 
-/* Footer stays at bottom, centered */
-footer {
-  text-align: center;
-  padding: 10px;
-  color: white;
-  font-size: 0.9rem;
-  opacity: 0.9;
+/* main content grows to fill available space */
+.page-container{
+  flex:1;                    /* takes remaining height between header/footer */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;    /* centers vertically */
+  gap:20px;
+  padding:20px;
+}
+
+/* title */
+.title{
+  color:var(--white);
+  margin:0;
+  font-weight:700;
+  font-size:clamp(1.25rem,2.5vw,2rem);
+  text-align:center;
+}
+
+/* calculator card */
+.calculator{
+  width: 360px;
+  max-width:90%;
+  background:var(--card);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* display */
+.display{
+  width:100%;
+  height:64px;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  padding:14px;
+  font-size:1.6rem;
+  text-align:right;
+  background:var(--muted);
+  margin-bottom:14px;
+  color:#222;
+}
+
+/* buttons grid */
+.buttons{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+/* basic button look */
+.btn{
+  height:62px;
+  border-radius:10px;
+  border:none;
+  background:#eaeaea;
+  font-size:1.1rem;
+  cursor:pointer;
+  box-shadow:0 6px 14px rgba(0,0,0,0.08);
+  transition:transform .08s ease, box-shadow .08s ease;
+}
+
+.btn:active{transform:translateY(2px)}
+.btn:hover{box-shadow:0 10px 18px rgba(0,0,0,0.12)}
+
+/* special colors */
+.operator{background:var(--accent); color:#fff}
+.clear{background:var(--danger); color:#fff}
+.equal{
+  background:var(--ok);
+  color:#fff;
+  grid-column:span 1;
+}
+
+/* make equals span two columns visually like before */
+.equal{
+  grid-column: span 2;
+}
+
+/* footer styling - always at bottom */
+footer{
+  text-align:center;
+  padding:14px 10px;
+  color:rgba(255,255,255,0.95);
+  font-size:0.9rem;
+  background:transparent;
+}
+
+/* responsive tweak */
+@media (max-width:420px){
+  .calculator{width:320px}
+  .btn{height:56px;font-size:1rem}
+  .display{height:56px;font-size:1.25rem}
 }
