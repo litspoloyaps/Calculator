@@ -84,10 +84,12 @@ button:hover {
   background: #43a047;
 }
 
-/* Footer */
 footer {
   margin-top: 25px;
   color: white;
   font-size: 0.9rem;
   opacity: 0.9;
+  text-align: center;
+  width: 100%;
 }
+
